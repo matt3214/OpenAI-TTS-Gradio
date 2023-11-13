@@ -13,12 +13,14 @@ load_dotenv()
 
 openai_key = os.getenv("OPENAI_KEY")
 
-if openai_key == "<YOUR_OPENAI_KEY>":
-    openai_key = ""
+if openai_key == "":
+    openai_key = "<YOUR_OPENAI_KEY>" # Wouldn't it be better not to give this option at all?
 
 if openai_key == "":
-    sys.exit("Please Provide Your OpenAI API Key")
+    input("Please Provide Your OpenAI API Key:\n") # 
 
+if openai_key == "":
+    sys.exit("No OpenAI API Key provided. Exiting.")
 
 def tts(
         text: str,
